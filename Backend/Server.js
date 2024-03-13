@@ -1,12 +1,11 @@
 const express = require('express')
 const mysql = require('mysql')
 const cors = require('cors')
-
-
 const app = express()
 app.use(cors());
 app.use(express.json());
 
+    // db connection  
 
 const db=mysql.createConnection({
   host:'localhost',
@@ -14,6 +13,8 @@ const db=mysql.createConnection({
   password:'',
   database:'walldecor'
 })
+
+// signup data
 
 app.post('/walldecor',(req,res)=>{
   const sql = "INSERT INTO signup (`fname`, `lname`, `email`, `password`) Values (?)";
@@ -30,6 +31,9 @@ app.post('/walldecor',(req,res)=>{
 })
 
 
+// for  login 
+
+
 app.post('/signup',(req,res)=>{
   const sql = "SELECT * FROM signup WHERE `email` = ? AND `password` = ?";
  
@@ -43,6 +47,20 @@ app.post('/signup',(req,res)=>{
     }else{
       return res.json("Failed");
     }
+  })
+})
+
+
+
+
+app.post('/walldecor',(req,res)=>{
+  const sql = "INSERT INTO subscribe (`email`) Values (?)";
+  const values = [
+    req.body.email
+  ]
+  db.query (sql,[values], (err,data)=>{
+    if(err) return res.json(err);
+    return res.json(data);
   })
 })
 
