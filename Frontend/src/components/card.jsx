@@ -9,6 +9,9 @@ const Card = (props) => {
 
     const id = props.id
     let ADD = props.ADD;
+     
+
+ 
 
     // console.log(id)
   return (
@@ -23,7 +26,7 @@ const Card = (props) => {
               <p className="  font-medium">{props.name}</p>
             </div>
             <div className="price pb-2 pl-4">
-              <span className="line-through px-2 pl-2"> {props.price1}</span>  {props.price2}
+             RS. <span className="line-through px-1 ">{props.price1}</span> {props.price2}
             </div>
             <div className='flex justify-center mr-8 '>
            <button className=' w-2/4 ml-10 border-2 text-center  my-2' onClick={()=>ADD(props)}>Add To Cart</button>

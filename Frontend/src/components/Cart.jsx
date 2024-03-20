@@ -94,7 +94,7 @@ const Cart = () => {
         </div>
 
         <div className="text-right mr-20 py-10   font-bold">
-          <h1>Total Item            : {itemss} </h1>
+          <h1>Total Item  : {itemss} </h1>
           <h1 className="underline underline-offset-4">
            
             Payable Amount : {itemsprice}

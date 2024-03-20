@@ -64,6 +64,18 @@ app.post('/walldecor',(req,res)=>{
   })
 })
 
+
+app.get("/luxdecor",(req,res)=>{
+  db.query("SELECT * FROM luxdecor",(err , result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.send(result);
+    }
+  })
+})
+
+
 app.listen(5000, ()=>{
   console.log("Listining...")
 })

@@ -22,27 +22,9 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import store from "./store/Store";
 import { Provider } from "react-redux";
-import Sign from "./components/Sign";
 import {Toaster} from "sonner"
 
 const App = () => {
-
-
-  // const fetchh = async(err) =>{
-  //  await fetch('http://localhost:8081/signup_data')
-  //   .then(res => res.json())
-  //   .then(data => setData(data))
-  //   .catch(err,()=> console.log(err));
-  // }
-
-  // const [data , setData]=useState([]);
-  // useEffect(()=>{
-  //   fetchh()
-  // },[])
-
-
-
-
 
   const [notificationCount, setnotificationCount] = useState(0);
   let [sold, setSold] = useState([]);
