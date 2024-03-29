@@ -17,8 +17,9 @@ function Navbar({notificationCount }) {
 let names=useSelector((state)=>state.cart)
 // let dispatch = useDispatch()
 
+
 let itemss = names.reduce(
-  (def, items) => def + items.quantity,
+  (def, items) => def + parseInt(items.quantity),
   0
 );
 
@@ -79,7 +80,7 @@ let itemss = names.reduce(
    
 
         <div className="logo">
-        <Link to={"/"}>  <img src={image} alt="img" />  </Link>
+        <Link to={"/home"}>  <img src={image} alt="img" />  </Link>
         </div>
 
         <div className="font relative">

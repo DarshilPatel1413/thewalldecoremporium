@@ -1,7 +1,11 @@
 import React from 'react'
+import Footer2 from "./Footer2";
+import Footer1 from "./Footer1";
+import Navbar from "./Navbar";
 
 function Privacy() {
-  return (
+  return (<>
+    <Navbar/>
     <div className='w-full justify-center p-10 pl-14 bg-slate-100'>
       <h1 className='text-4xl text-center pb-7 underline underline-offset-4'>Privacy Policy</h1><br />
       <p >We may obtain personal information about you from various sources, including this website and other websites <br />
@@ -9,7 +13,9 @@ function Privacy() {
 
       </p>
     </div>
-  )
+    <Footer1/>
+          <Footer2/>
+    </>)
 }
 
 export default Privacy

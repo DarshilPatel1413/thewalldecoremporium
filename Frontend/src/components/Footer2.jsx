@@ -12,21 +12,21 @@ function Footer2() {
       
     <div className="linkk ">
         <h2 className='text-2xl mb-3 font-medium'>Quick Links</h2>
-        <Link to={"/refund"} className='hover:underline mb-1 w-fit'>Refund Policy</Link><br />
-        <Link to={"/shipping"} className='hover:underline mb-1 w-fit'>Shipping Policy</Link><br />
-        <Link to={"/privacy"} className='hover:underline mb-1 w-fit'>Privacy Policy</Link><br />
-        <Link to={"/contact"} className='hover:underline mb-1 w-fit'>Contact Us</Link><br />
+        <Link to={"/refund"}  onClick={() => window.scrollTo(0, 0)} className='hover:underline mb-1 w-fit'>Refund Policy</Link><br />
+        <Link to={"/shipping"} onClick={() => window.scrollTo(0, 0)} className='hover:underline mb-1 w-fit'>Shipping Policy</Link><br />
+        <Link to={"/privacy"} onClick={() => window.scrollTo(0, 0)} className='hover:underline mb-1 w-fit'>Privacy Policy</Link><br />
+        <Link to={"/contact"} onClick={() => window.scrollTo(0, 0)} className='hover:underline mb-1 w-fit'>Contact Us</Link><br />
         {/* <Link to={"/C art"} className='hover:underline mb-1 w-fit'>Conrt</Link> */}
     </div>
 
     <div className="product ">
         <p  className='text-2xl mb-3 font-medium'> Decoratives --{'>'}</p>
-        <Link to={"/luxdecor"}  className='hover:underline'>Luxary Decor</Link> <br />
-            <Link to={"/classicdecor"} className='hover:underline' >Classic Decor</Link><br />
-            <Link to={"/premiumclock"} className='hover:underline'>Premium Clock</Link><br />
-            <Link to={"/metalclock"} className='hover:underline'>Metal Clock</Link><br />
-            <Link to={"/crystal"} className='hover:underline'>Crystal Painting</Link><br />
-            <Link to={"/simple"} className='hover:underline'>Simple Painting</Link>
+        <Link to={"/luxdecor"} onClick={() => window.scrollTo(0, 0)} className='hover:underline'>Luxary Decor</Link> <br />
+            <Link to={"/classicdecor"} onClick={() => window.scrollTo(0, 0)} className='hover:underline' >Classic Decor</Link><br />
+            <Link to={"/premiumclock"} onClick={() => window.scrollTo(0, 0)} className='hover:underline'>Premium Clock</Link><br />
+            <Link to={"/metalclock"} onClick={() => window.scrollTo(0, 0)} className='hover:underline'>Metal Clock</Link><br />
+            <Link to={"/crystal"} onClick={() => window.scrollTo(0, 0)} className='hover:underline'>Crystal Painting</Link><br />
+            <Link to={"/simple"} onClick={() => window.scrollTo(0, 0)} className='hover:underline'>Simple Painting</Link>
     </div>
 
     <div className="contact   ">

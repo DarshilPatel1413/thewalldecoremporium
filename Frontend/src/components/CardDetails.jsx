@@ -5,14 +5,15 @@ import "./CardDetails.css";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/cartSlice"; 
 import { toast } from "sonner";
+import axios from "axios";
+import Footer2 from "./Footer2";
+import Footer1 from "./Footer1";
+import Navbar from "./Navbar";
 
 const CardDetails = (props) => {
 
 
   
-  // let incrementQuantity = props.incrementQuantity;
-  // let decrementQuantity = props.decrementQuantity;
-  // let quantity = props.quantity;
 
 let names = useSelector((state) => state.cart)
 let dispatch = useDispatch()
@@ -20,6 +21,7 @@ let dispatch = useDispatch()
 let ADD = (Data) =>{
   // dispatch(add(Data))
   let addd = names.find((itemm)=> itemm.id === Data.id)
+  
   if(!addd){
     dispatch(add(Data))
   toast.success("Adding In Cart")
@@ -27,34 +29,71 @@ let ADD = (Data) =>{
 }
  
 
-  const [Data, setData] = useState([]);
+  // const [Data, setData] = useState([]);
+  // const { id } = useParams();
 
-  // const [loading , setLoading] = useState(false)
+  // const setDetail = (id) => {
+  //   carddetail.map((item) => {
+  //     if (item.id == id) {
+  //       setData(item);
+  //     }
+  //   });
+  // };
 
+  // useEffect(() => {
+  //   setDetail(id);
+  // }, []);
+
+
+  const [ Data , setData] = useState([]);
+  const [ quantity , setQuantity] = useState();
   const { id } = useParams();
-
-  // console.log(id);
-  const setDetail = (id) => {
-    // setLoading(true)
-    carddetail.map((item) => {
-      // console.log(item.id);
-      if (item.id == id) {
-        setData(item);
-      }
-    });
-  };
-
-  // console.log(data1)
-  console.log(Data);
+  
+  console.log(typeof(Data.quantity))
 
   useEffect(() => {
-    setDetail(id);
-  }, []);
+    fetchData(id); 
+}, []);  
 
+
+    const fetchData = async (id) => {
+     
+        try {
+            const response = await axios.get('http://localhost/walldecor/getdata.php'); 
+            const result = await response.data;
+            console.log(result)
+            result.map((item)=>{
+              if(item.id == id){
+                let quantity = parseInt(item.quantity)
+                // console.log(typeof(quantity));
+                setData(item );
+                // console.log(typeof(item.quantity));
+
+              }
+            });
+           
+           
+
+            
+           
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+  
+
+    
+
+
+ 
   return (
     <>
-      <div className="carddetail p-10 bg-slate-200 grid md:grid-cols-2 grid-cols-1">
-        <div className="img hover:scale-110 duration-700 p-3 my-2">
+       
+  <Navbar/>
+      {Data && (
+           <div className="cdcard p-10 bg-slate-200 grid md:grid-cols-2 grid-cols-1">  
+          
+         <div className="img hover:scale-110 duration-700 p-3 my-2">
           <img
             src={Data.image}
             alt="img"
@@ -62,17 +101,18 @@ let ADD = (Data) =>{
           />
         </div>
         <div className="details">
-          <Link to={"/"} className="px-3 outline-none">
+          <Link to={"/home"} className="px-3 outline-none">
             TheWallDecorEmporium
           </Link>
 
           <p className="text-4xl font-bold mb-3">{Data.name}</p>
-          {/* <button className='border-2 border-black rounded px-2 pb-1 bg-gray-700 text-white'>sale</button> */}
           <p className="w-fit text-2xl">
-            {" "}
-            <span className="line-through pr-4">RS. {Data.price1} </span>{" "}
+            <span className="line-through pr-4">RS. {Data.price1} </span>
            RS. {Data.price2}
           </p>
+        {/* </div>  */}
+       
+  
           <p className="text-xs">
             Tax included.{" "}
             <span className="underline underline-offset-8">Shipping</span>{" "}
@@ -109,8 +149,12 @@ let ADD = (Data) =>{
             <li>Ideal for living room, bedroom or study</li>
             <li>Smart design with attractive shine and finish</li>
           </ol>
-        </div>
-      </div>
+        </div> 
+        </div>         
+        )}
+        
+    <Footer1/>
+          <Footer2/>
     </>
   );
 };

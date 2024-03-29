@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner';
+import ExtraNavbar from './ExtraNavbar';
 
 const Signup = () => {
 
@@ -53,8 +54,9 @@ const Signup = () => {
   // console.log(values.fname)
 
 
-  return (
-    <form  onSubmit={handleSubmit}  className=' border sm:w-2/4 sm:ml-40 md:ml-80 sm:my-10 w-full py-7 bg-slate-200 rounded-xl'>
+  return (<>
+  <ExtraNavbar/>
+    <form  onSubmit={handleSubmit}  className=' border sm:w-2/4 sm:ml-40 md:ml-80 sm:mt-20 md:my-3 mt-10 w-full py-5 bg-slate-200 rounded-xl'>
 
 <h1 className='text-4xl text-center pb-10 underline underline-offset-8'>Create New Account</h1>
       <hr className='border-1 border-zinc-950 p-2' />
@@ -106,7 +108,7 @@ const Signup = () => {
       <Link to={"/"} className='text-xs ml-20 hover:text-lime-950 hover:font-bold'>Already have a account?</Link>
       </div>
     </form>
-  );
+    </> );
 };
 
 export default Signup;

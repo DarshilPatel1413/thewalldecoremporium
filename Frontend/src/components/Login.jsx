@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Validation from './Validation'
 import axios from 'axios'
 import { toast } from 'sonner'
+import ExtraNavbar from './ExtraNavbar'
 
 function Login() {
 
@@ -55,8 +56,10 @@ function Login() {
       }
     }
 
-  return (
-    <form onSubmit={handleSubmit}  className=' border sm:w-2/4 sm:ml-40  md:ml-[300px] sm:my-10 w-full py-7 bg-slate-200 rounded-xl'>
+  return (<> 
+  <ExtraNavbar/>
+  
+     <form onSubmit={handleSubmit}  className=' border sm:w-2/4 sm:ml-44  md:ml-[280px] sm:my-10 w-full py-7 mt-20 sm:mt-28 md:mt-16 bg-slate-200 rounded-xl'>
       
     <h1 className='text-4xl text-center pb-10 underline underline-offset-8'>Log In</h1>
     <hr className='border-1 border-zinc-950 p-2' />
@@ -72,14 +75,15 @@ function Login() {
     <Link className='text-xs ml-20  hover:text-lime-950 hover:font-bold'>Forgot Your Password?</Link><br />
 
 
-    <button type='submit' className='border border-stone-950 px-2 pb-1 my-2 bg-blue-600 text-white rounded-lg'>Sign In</button>
+    <button type='submit' className='border border-stone-950 px-2 pb-1 my-2 bg-blue-600 text-white rounded-lg'>Log in</button>
 
 
     {/* <Link to={"/sign"} className='text-xs ml-20  hover:text-lime-950 hover:font-bold'>Create New Account?</Link> */}
     <Link to={"/signup"} className='text-xs ml-20  hover:text-lime-950 hover:font-bold'>Create New Account?</Link>
     </div>
     </form>
-  )
+    </>
+ )
 }
 
 export default Login

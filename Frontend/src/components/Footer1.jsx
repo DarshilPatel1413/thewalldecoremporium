@@ -11,16 +11,21 @@ function Footer1() {
     email:''
   })
 
+  const [ email , setEmail] = useState('');
+
   const handleChange = (event)=>{
    
   setValues({...values,[event.target.name]:event.target.value})
+  setEmail(event.target.value)
     
   }
 
   const handlesubmit = (e) =>{
-    axios.post('http://localhost:5000/walldecor' , values)
+    e.preventDefault();
+    axios.post('http://localhost:5000/walldecor/subscribe' , values)
     .then(res =>  console.log("Done" , values ) ,
-    toast.success("Creating Sucessfully..!!") 
+    toast.success("Subscribing Sucessfully..!!") ,
+    setEmail('')
     )
     .catch(err =>  console.log(err) );
   }
@@ -33,7 +38,8 @@ function Footer1() {
           <div className='extra text-center  bg-slate-300 p-4'>
     <p className='font-bold text-3xl'>Subscribe To Our Email</p>
     <p className='pb-2'>Subscribe to our mailing list for insider news, product launches, and more.</p>
-   <form onSubmit={handlesubmit}>  <input type="email" name="email" onChange={handleChange}  placeholder='Enter Your Email Here' className='p-2 outline-none rounded-tl-lg rounded-bl-lg sm:w-72 bg-slate-200'/>
+   <form onSubmit={handlesubmit}> 
+    <input type="email" name="email" value={email} onChange={handleChange}  placeholder='Enter Your Email Here' className='p-2 outline-none rounded-tl-lg rounded-bl-lg sm:w-72 bg-slate-200'/>
     <button type='submit' name='submit'><i class="fa-solid fa-arrow-right-to-bracket bg-slate-200 py-3 pr-2  rounded-tr-full rounded-br-full"></i></button>
     </form>
 

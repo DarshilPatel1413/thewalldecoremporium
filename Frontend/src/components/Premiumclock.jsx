@@ -1,9 +1,14 @@
 import React from 'react'
 import { luxaryclock } from './Dataset'
 import Card from './card'
+import CdCard from './CdCard'
+import Footer2 from "./Footer2";
+import Footer1 from "./Footer1";
+import Navbar from "./Navbar";
 
 function Premiumclock({ADD}) {
-  return (<div className='bg-slate-100'>
+  return (<>
+    <Navbar/><div className='bg-slate-100'>
     
 
     <h2 className="text-4xl text-center pt-10 tracking-wide px-5 font-bold">Buy Premium & Classic Wall CLock Online In India</h2>
@@ -14,7 +19,7 @@ function Premiumclock({ADD}) {
         luxaryclock.map((item) => (
 
             
-          <Card
+          <CdCard
           ADD={ADD}
           // key={index} 
           id={item.id}
@@ -31,7 +36,9 @@ function Premiumclock({ADD}) {
      </div>
 
 
-    </div>)
+    </div> <Footer1/>
+          <Footer2/>
+    </>)
 }
 
 export default Premiumclock

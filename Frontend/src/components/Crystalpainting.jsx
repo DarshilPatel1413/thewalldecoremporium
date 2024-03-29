@@ -1,9 +1,14 @@
 import React from 'react'
 import {  crystalpaint } from './Dataset'
 import Card from './card'
+import CdCard from './CdCard'
+import Footer2 from "./Footer2";
+import Footer1 from "./Footer1";
+import Navbar from "./Navbar";
 
 function Crystalpainting({ADD}) {
-  return (
+  return (<>
+    <Navbar/>
   <div className='bg-slate-100'>
     
 
@@ -14,8 +19,8 @@ function Crystalpainting({ADD}) {
       {
         crystalpaint.map((item) => (
 
-          <Card
-          ADD={ADD}
+          <CdCard
+                    ADD={ADD}
           // key={index} 
           id={item.id}
           image={item.image}
@@ -30,7 +35,9 @@ function Crystalpainting({ADD}) {
      </div>
 
 
-    </div>)
+    </div><Footer1/>
+          <Footer2/>
+    </>)
 }
 
 export default Crystalpainting

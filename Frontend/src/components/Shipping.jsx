@@ -1,7 +1,11 @@
 import React from 'react'
+import Footer2 from "./Footer2";
+import Footer1 from "./Footer1";
+import Navbar from "./Navbar";
 
 function Shipping() {
-  return (
+  return (<>
+    <Navbar/>
     <div className='w-full justify-center p-10 pl-14 bg-slate-100'>
       
       <h1 className='text-4xl text-center pb-7 underline underline-offset-4'>Shipping Policy</h1>
@@ -25,7 +29,9 @@ function Shipping() {
 
 <p>Not necessarily. A single order may be shipped as multiple packages to ensure that your product(s) arrive safely and securely.</p><br />
     </div>
-  )
+    <Footer1/>
+          <Footer2/>
+    </> )
 }
 
 export default Shipping

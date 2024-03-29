@@ -3,10 +3,14 @@ import Image from "../image/home.jpg";
 import { home } from "./Dataset";
 import { Link } from "react-router-dom";
 import Launch from "./Launch";
+import Footer2 from "./Footer2";
+import Footer1 from "./Footer1";
+import Navbar from "./Navbar";
 
 
 function Home() {
-  return (
+  return (<>
+  <Navbar/>
     <div className="main bg-slate-100 m-0">
       <div className="home1  pt-7 flex justify-evenly ">
         <div className="imgg lg:block  hidden pl-7 w-screen hover:scale-110 duration-500">
@@ -84,7 +88,9 @@ function Home() {
        <Launch/>
 
     </div>
-  );
+    <Footer1/>
+          <Footer2/>
+    </> );
 }
 
 export default Home;

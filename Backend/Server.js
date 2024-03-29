@@ -31,6 +31,36 @@ app.post('/walldecor',(req,res)=>{
 })
 
 
+// for subscribe mail
+
+app.post('/walldecor/subscribe',(req,res)=>{
+  const sql = "INSERT INTO subscribe (`email`) Values (?)";
+  const values = [
+    req.body.email
+  ]
+  db.query (sql,[values], (err,data)=>{
+    if(err) return res.json(err);
+    return res.json(data);
+  })
+})
+
+
+// for contact us
+
+app.post('/walldecor/contactus',(req,res)=>{
+  const sql = "INSERT INTO contactus ( `name`, `email`, `comment`) Values (?)";
+  const values = [
+    req.body.name,
+    req.body.email,
+    req.body.comment,
+  ]
+  db.query (sql,[values] , (err,data)=>{
+    if(err) return res.json(err);
+    return res.json(data);
+  })
+})
+
+
 // for  login 
 
 
@@ -53,27 +83,9 @@ app.post('/signup',(req,res)=>{
 
 
 
-app.post('/walldecor',(req,res)=>{
-  const sql = "INSERT INTO subscribe (`email`) Values (?)";
-  const values = [
-    req.body.email
-  ]
-  db.query (sql,[values], (err,data)=>{
-    if(err) return res.json(err);
-    return res.json(data);
-  })
-})
 
 
-app.get("/luxdecor",(req,res)=>{
-  db.query("SELECT * FROM luxdecor",(err , result)=>{
-    if(err){
-      console.log(err);
-    }else{
-      res.send(result);
-    }
-  })
-})
+
 
 
 app.listen(5000, ()=>{

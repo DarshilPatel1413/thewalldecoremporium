@@ -1,9 +1,14 @@
 import React from 'react'
 import { simpledecor } from './Dataset'
 import Card from './card'
+import CdCard from './CdCard'
+import Footer2 from "./Footer2";
+import Footer1 from "./Footer1";
+import Navbar from "./Navbar";
 
 function Simplepainting({ADD}) {
-  return (<div className='bg-slate-100'>
+  return (<>
+    <Navbar/><div className='bg-slate-100'>
     
 
     <h2 className="text-4xl text-center pt-10 px-5 tracking-wide font-bold">Buy Simple & Classic Wall Paintings Online In India</h2>
@@ -14,7 +19,7 @@ function Simplepainting({ADD}) {
         simpledecor.map((item) => (
 
             
-          <Card
+          <CdCard
           ADD={ADD}
           // key={index} 
           id={item.id}
@@ -31,7 +36,9 @@ function Simplepainting({ADD}) {
      </div>
 
 
-    </div>)
+    </div> <Footer1/>
+          <Footer2/>
+    </>)
 }
 
 export default Simplepainting
