@@ -1,12 +1,17 @@
-const express = require('express')
-const mysql = require('mysql')
-const cors = require('cors')
-const path= require('path')
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
+const Razorpay = require('razorpay');
+
+// require("dotenv").config();
+
 const app = express()
 app.use(cors());
 app.use(express.json());
 
-
+app.use("/", (req,res)=>{
+  res.json({msg:"Hello trial for db"});
+})
 
     // db connection  
 
@@ -16,6 +21,7 @@ const db=mysql.createConnection({
   password:'',
   database:'walldecor'
 })
+
 
 // signup data
 

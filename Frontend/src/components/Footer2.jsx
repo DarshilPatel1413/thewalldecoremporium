@@ -34,7 +34,7 @@ function Footer2() {
         <p>Address  :-  CG Road , Ahmedabad , 382345</p>
         <p> {'<-'}  Customer Support  -{'>'}</p>
         <p > Email :-thewalldecoremporium</p>
-        <p> Call  :- +91 98245 87456</p>
+        <p> Call  :- +91 9857 1455</p>
     </div>
 
     </div>

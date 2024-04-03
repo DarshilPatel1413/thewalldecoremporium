@@ -46,11 +46,7 @@ let ADD = (Data) =>{
 
 
   const [ Data , setData] = useState([]);
-  const [ quantity , setQuantity] = useState();
   const { id } = useParams();
-  
-  console.log(typeof(Data.quantity))
-
   useEffect(() => {
     fetchData(id); 
 }, []);  
@@ -64,11 +60,7 @@ let ADD = (Data) =>{
             console.log(result)
             result.map((item)=>{
               if(item.id == id){
-                let quantity = parseInt(item.quantity)
-                // console.log(typeof(quantity));
                 setData(item );
-                // console.log(typeof(item.quantity));
-
               }
             });
            
