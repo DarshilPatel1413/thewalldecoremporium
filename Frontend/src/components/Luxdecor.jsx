@@ -8,13 +8,16 @@ import Navbar from "./Navbar";
 
 function Luxdecor({ ADD }) {
 
+  const url = process.env.REACT_APP_BACKEND;
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost/walldecor/getdata.php"
+          // "http://localhost/walldecor/getdata.php"
+          `${url}`
         );
         setData(response.data);
         console.log(response.data);

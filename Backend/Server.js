@@ -9,7 +9,7 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 
-app.use("/", (req,res)=>{
+app.use("/check", (req,res)=>{
   res.json({msg:"Hello trial for db"});
 })
 
@@ -88,6 +88,29 @@ app.post('/signup',(req,res)=>{
     }
   })
 })
+
+// luxxdcor
+
+app.post('/walldecor/luxdecor',(req,res)=>{
+  const sql = "SELECT * FROM luxdecor";
+
+  const values = [
+    req.body.id,
+    req.body.name,
+    req.body.image,
+    req.body.price1,
+    req.body.price2
+ ]
+ 
+  db.query (sql,[values] , (err,data)=>{
+    if(err){
+       return res.json(err);
+    }else{
+      return res.json(data);
+    }
+  })
+})
+
 
 
 
