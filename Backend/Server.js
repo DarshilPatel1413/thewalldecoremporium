@@ -70,6 +70,22 @@ app.post('/walldecor/contactus',(req,res)=>{
 })
 
 
+// for order
+
+app.post('/walldecor/order',(req,res)=>{
+  const sql = "INSERT INTO order ( `name`, `price`, `quantity`) Values (?)";
+  const values = [
+    req.body.name,
+    req.body.price,
+    req.body.quantity,
+  ]
+  db.query (sql,[values] , (err,data)=>{
+    if(err) return res.json(err);
+    return res.json(data);
+  })
+})
+
+
 // for  login 
 
 

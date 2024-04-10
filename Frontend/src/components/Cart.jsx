@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, remove } from "../store/cartSlice";
 import { toast } from "sonner";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import Footer2 from "./Footer2";
 import Footer1 from "./Footer1";
 import Navbar from "./Navbar";
@@ -13,21 +13,50 @@ const Cart = () => {
   const currency = "INR";
   const receiptID = "qwsaq1";
 
-  const paymenthandler = async (e) => {
-    const response = await fetch("http://localhost:5000/order", {
-      method: "POST",
-      body: JSON.stringify({
-        amount,
-        currency,
-        receipt: receiptID,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const order = await response.json();
-    console.log(order);
-  };
+  // const paymenthandler = async (e) => {
+  //   const response = await fetch("http://localhost:5000/order", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       amount,
+  //       currency,
+  //       receipt: receiptID,
+  //     }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  //   const order = await response.json();
+  //   console.log(order);
+  // };
+
+
+  const [values, setValues] = useState({
+    name: "",
+    price: "",
+    quantity: "",
+  });
+
+  // const handleChange = (event) => {
+  //   setValues({ ...values, [event.target.name]: event.target.value });
+    
+  // };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(values);
+
+      // axios
+      //   .post("http://localhost:5000/walldecor/order", values)
+      //   .then(
+      //     (res) => console.log("Done", res),
+      //     toast.success("Order Accepted..!!"),
+      //     navigate("/cart")
+      //   )
+      //   .catch((err) => console.log(err));
+    }
+  
 
   let names = useSelector((state) => state.cart);
   let dispatch = useDispatch();
@@ -58,6 +87,7 @@ const Cart = () => {
     <>
       <Navbar />
       <div>
+        <form onSubmit={handleSubmit}>
         <div className="w-auto  text-center justify-items-center items-center  sm:gap-2 gap-0 pb-6 pr-2   m-7 ">
           <div className=" border-2 border-black m-2 pb-5">
             {names.length === 0 ? (
@@ -89,15 +119,16 @@ const Cart = () => {
                   >
                     <img src={item.image} alt="im" className="h-14 w-14 pt-1" />
 
-                    <p className="p-1 mt-1 hidden sm:block text-center justify-items-center items-center">
+                    <p  name="name" className="p-1 mt-1 hidden sm:block text-center justify-items-center items-center">
                       {item.name}
                     </p>
+                    
                   </Link>
 
                   <div className="flex">
                     <p className="rounded-2xl border-2 border-black  pb-1 px-1 h-fit flex flex-col sm:flex-row   sm:px-3 my-2 text-xl sm:text-3xl hover:cursor-pointer">
                       <button onClick={() => DECR(item.id)}>-</button>
-                      <span className="px-2 sm:px-6 font-semibold hover:cursor-text">
+                      <span  className="px-2 sm:px-6 font-semibold hover:cursor-text">
                         {quantity}
                       </span>
                       <button onClick={() => INCR(item.id)}>+</button>
@@ -118,13 +149,14 @@ const Cart = () => {
           <div className="flex justify-between md:gap-80 gap-5">
             <div className="hidden sm:block "></div>
             <div className="text-right flex flex-col justify-center p-5 mr-5 sm:mr-10 py-10 border-2 border-slate-800 w-fit ml-5  font-bold">
-              <h1>Total Item : {itemss} </h1>
-              <h1 className="underline underline-offset-4">
+              <h1  name="quantity">Total Item : {itemss} </h1>
+              <h1  name="price" className="underline underline-offset-4">
                 Payable Amount : {itemsprice}
               </h1>
               <br />
               <button
-                onClick={paymenthandler}
+              type="submit"
+              name="submit"
                 className="border-2 border-y-neutral-900 p-2 text-center rounded-3xl text-lg  bg-slate-200 hover:bg-black hover:text-white"
               >
                 Go For Payment
@@ -132,6 +164,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
+        </form>
       </div>
       <Footer1 />
       <Footer2 />

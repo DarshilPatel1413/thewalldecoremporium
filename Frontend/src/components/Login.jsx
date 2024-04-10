@@ -43,7 +43,8 @@ function Login() {
       event.preventDefault();
       setError(Validation(values));
       if(error.email === "" && error.password === ""){
-        axios.post('http://localhost:5000/signup' , values)
+        axios.post('https://walldecor-backend.onrender.com//signup' , values)
+        // axios.post('http://localhost:5000/signup' , values)
         .then(res => {
           if(res.data === "Sucess"){
             console.log("donr")
