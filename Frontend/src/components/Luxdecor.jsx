@@ -12,22 +12,38 @@ function Luxdecor({ ADD }) {
 
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
           // "http://localhost/walldecor/getdata.php"
-          `${url}`
-        );
-        setData(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+          // `${url}`
+          
+  //       );
+  //       setData(response.data);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
+
+  useEffect( ()=>{
+    const getUserdata = async()=>{
+      try{
+      const reqData = await fetch("http://localhost:5000/walldecor/luxdecor");
+      const resData= await reqData.json();
+      setData(resData);
+      console.log(resData);
+      }catch (error){
+        console.error('Error fetching data:', error);
+      }
+
+    }
+    getUserdata();
+  },[]);
 
   return (
     <>
@@ -48,7 +64,7 @@ function Luxdecor({ ADD }) {
           {data.map((item, index) => (
             <Card
               ADD={ADD}
-              // key={index}
+              key={index}
               id={item.id}
               image={item.image}
               name={item.name}

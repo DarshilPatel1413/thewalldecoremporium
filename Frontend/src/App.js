@@ -22,9 +22,9 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import store from "./store/Store";
 import { Provider } from "react-redux";
-import {Toaster} from "sonner"
 import CdCard from "./components/CdCard";
 import Othercarddetails from "./components/Othercarddetails";
+import { Toaster } from "sonner";
 
 const App = () => {
 

@@ -22,8 +22,8 @@ function Footer1() {
 
   const handlesubmit = (e) =>{
     e.preventDefault();
-    axios.post('https://walldecor-backend.onrender.com//walldecor/subscribe' , values)
-    // axios.post('http://localhost:5000/walldecor/subscribe' , values)
+    // axios.post('https://walldecor-backend.onrender.com/walldecor/subscribe' , values)
+    axios.post('http://localhost:5000/walldecor/subscribe' , values)
     .then(res =>  console.log("Done" , values ) ,
     toast.success("Subscribing Sucessfully..!!") ,
     setEmail('')

@@ -24,8 +24,8 @@ function Contact() {
 
   const handlesubmit = (e) =>{
     e.preventDefault();
-    axios.post('https://walldecor-backend.onrender.com//walldecor/contactus' , values)
-    // axios.post('http://localhost:5000/walldecor/contactus' , values)
+    // axios.post('https://walldecor-backend.onrender.com/walldecor/contactus' , values)
+    axios.post('http://localhost:5000/walldecor/contactus' , values)
     .then(res =>  console.log("Done" , values ) ,
     toast.success("sending Sucessfully..!!") ,
     navigate('/home')

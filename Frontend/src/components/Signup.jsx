@@ -35,8 +35,8 @@ const Signup = () => {
       // setError(false);
 
       axios
-        .post("https://walldecor-backend.onrender.com//walldecor", values)
-        // .post("http://localhost:5000/walldecor", values)
+        // .post("https://walldecor-backend.onrender.com/walldecor", values)
+        .post("http://localhost:5000/walldecor", values)
         .then(
           (res) => console.log("Done", values),
           toast.success("Creating Sucessfully..!!"),

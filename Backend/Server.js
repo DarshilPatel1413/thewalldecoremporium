@@ -107,25 +107,15 @@ app.post('/signup',(req,res)=>{
 
 // luxxdcor
 
-app.post('/walldecor/luxdecor',(req,res)=>{
-  const sql = "SELECT * FROM luxdecor";
-
-  const values = [
-    req.body.id,
-    req.body.name,
-    req.body.image,
-    req.body.price1,
-    req.body.price2
- ]
- 
-  db.query (sql,[values] , (err,data)=>{
-    if(err){
-       return res.json(err);
-    }else{
-      return res.json(data);
+app.get('/walldecor/luxdecor', (req, res) => {
+  db.query('SELECT * FROM luxdecor', (err, results) => {
+    if (err) {
+      console.error('Error fetching data from MySQL: ' + err);
+      
     }
-  })
-})
+    res.send(results);
+  });
+});
 
 
 
